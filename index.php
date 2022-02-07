@@ -2,6 +2,7 @@
 session_start();
 include_once 'dbh.inc.php';
 $result = mysqli_query($conn,"SELECT * FROM users");
+$rowcnt=mysqli_num_rows($result);
 $totalprice = 0;
 ?>
 
@@ -161,13 +162,13 @@ $totalprice = 0;
                 <div class="text-block">
                         
 <?php
-if (mysqli_num_rows($result) > 0) {
-$i=0;
-while($row = mysqli_fetch_array($result)) {
-$rowcnt=mysqli_num_rows($result);
-$i++;
-}
-}
+// if (mysqli_num_rows($result) > 0) {
+// $i=0;
+// while($row = mysqli_fetch_array($result)) {
+// $rowcnt=mysqli_num_rows($result);
+// $i++;
+// }
+// }
 ?>
                         <p class="first-txt">
                             Users: <?php echo $rowcnt; ?>
