@@ -3,7 +3,6 @@ session_start();
 include_once 'dbh.inc.php';
 $result = mysqli_query($conn,"SELECT * FROM users");
 $totalprice = 0;
-$totaluser = 0;
 ?>
 
 <!DOCTYPE html>
@@ -165,13 +164,13 @@ $totaluser = 0;
 if (mysqli_num_rows($result) > 0) {
 $i=0;
 while($row = mysqli_fetch_array($result)) {
-$totaluser += $row['usersId']; 
+$rowcnt=mysqli_num_rows($result);
 $i++;
 }
 }
 ?>
                         <p class="first-txt">
-                            Users: <?php echo $totaluser; ?>
+                            Users: <?php echo $rowcnt; ?>
                         </p>
 <?php                   
 include_once 'dbpay.inc.php';
